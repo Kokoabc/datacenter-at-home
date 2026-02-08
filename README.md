@@ -10,14 +10,14 @@ This project involves the transformation of legacy consumer hardware into a robu
 To simulate a corporate network environment using a Type-1 Hypervisor to host a multi-VLAN architecture, allowing for hands-on practice in firewall orchestration, identity management (Active Directory), and traffic analysis.
 
 ---
-##  Table of Contents
-* [ Project Overview](#-project-overview)
-* [ Technical Stack](#-technical-stack)
-* [ Hardware Inventory](#️-hardware-inventory-the-brain)
-* [ Logical Network Topology](#️-logical-network-topology)
-* [ Roadmap & Milestone Tracking](#-roadmap--milestone-tracking)
-* [ Troubleshooting Log](#-troubleshooting-log)
-* [ About the Author](#️-about-the-author)
+## Table of Contents
+* [Project Overview](#project-overview)
+* [Technical Stack](#technical-stack)
+* [Hardware Inventory](#hardware-inventory-the-brain)
+* [Logical Network Topology](#logical-network-topology)
+* [Roadmap and Milestone Tracking](#roadmap-and-milestone-tracking)
+* [Troubleshooting Log](#troubleshooting-log)
+* [About the Author](#about-the-author)
 
 ## Technical Stack
 * **Hypervisor:** Proxmox VE
