@@ -1,3 +1,4 @@
+<a name="top"></a>
 # datacenter-at-home
 # Enterprise-Grade Home Lab: Virtualization & Security Architecture
 **Status:** Phase 1: Hardware Procurement & Network Design (In-Progress)
@@ -56,3 +57,17 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 ## Troubleshooting Log (Current Phase)
 * **Challenge:** Determining NIC compatibility for FreeBSD-based OPNsense.
 * **Solution:** Sourced a genuine Intel i350-T2 chipset due to its superior driver support (igb) and hardware offloading capabilities compared to consumer Realtek chips.
+
+* ---
+[⬆ Back to Top](#top)
+## About the Author
+**Mopelola Opeifa**
+*Security+ Certified | GRC & Systems Engineering Enthusiast*
+
+This lab is a live representation of my technical journey and commitment to mastering secure infrastructure. By documenting the procurement, architecture, and troubleshooting phases, I aim to provide full transparency into my technical problem-solving process.
+
+🔗 **Connect with me:**
+* www.linkedin.com/in/mopelola-opeifa-3751a0344
+* https://www.credly.com/badges/4b46121e-5f1f-4d7f-8e76-55f369d38e29/public_url
+
+---
