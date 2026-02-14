@@ -75,8 +75,8 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 This lab is a live representation of my technical journey and commitment to mastering secure infrastructure. By documenting the procurement, architecture, and troubleshooting phases, I aim to provide full transparency into my technical problem-solving process.
 
 🔗 **Connect with me:**
-* https://www.credly.com/badges/4b46121e-5f1f-4d7f-8e76-55f369d38e29/public_url
-* www.linkedin.com/in/mopelola-opeifa-3751a0344
+* **Certification:** https://www.credly.com/badges/4b46121e-5f1f-4d7f-8e76-55f369d38e29/public_url
+* **LinkedIn:** www.linkedin.com/in/mopelola-opeifa-3751a0344
 
 
 ---
