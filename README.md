@@ -1,7 +1,8 @@
 <a name="top"></a>
 # datacenter-at-home
 # Enterprise-Grade Home Lab: Virtualization & Security Architecture
-**Status:** Phase 1: Hardware Procurement & Network Design (In-Progress)
+**Status:** Phase 1: Hardware Procurement & Network Design
+
 
 ## Project Overview
 This project involves the transformation of legacy consumer hardware into a robust, enterprise-grade virtualization host. The goal is to create a secure, segmented environment to master **Systems Engineering**, **Network Security**, and **GRC** (Governance, Risk, and Compliance) frameworks.
@@ -40,11 +41,8 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### Technical Note: Hardware Selection
-* **NIC Choice:** I specifically sourced a genuine **Intel i350-T2** for this build. Unlike consumer-grade Realtek chips, this server-grade NIC utilizes the **`igb` driver**, which offers superior stability, hardware offloading, and SR-IOV support in Proxmox/Linux environments. This ensures that network-intensive VMs (like the OPNsense firewall) have high-performance, low-latency throughput.
-* ---
 
-  
+#### **Phase 2: The Memory Overhaul**  
 ### Build Gallery
 
 #### **Physical Assembly**
@@ -53,10 +51,14 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ![Installing the RAM](32GB-ram-upgrade.jpg)
 
+
+
 * **The "Before":** Original 8GB configuration, insufficient for multi-VM workloads.
 ![Old 8GB ram](https://github.com/user-attachments/assets/fbc75878-2ac7-45f8-8d11-2c3b5e5ee487)
 
 ![Old 8GB RAM](Old-8GB-ram.jpg)   
+
+
 
 * **NIC Installation:** Installed a genuine Intel i350-T2 Server NIC.
 * ![NIC card-Intel i350-T2](https://github.com/user-attachments/assets/0e53888a-bd9b-438a-84b8-73527e5be879)
@@ -64,11 +66,15 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 ![Intel i350-T2 NIC Installation](NIC-card-Intel-i350-T2.jpg)
 
 > **Technical Note:** I specifically chose the Intel i350-T2 because it uses the **`igb` driver**. This provides better stability and hardware offloading for virtualization compared to standard consumer chips.
+>
+
 
 * **Mainboard Setup:** Preparing the MSI Z97 Guard-Pro for the first Proxmox VE boot.
 * ![1st Proxmox VE boot](https://github.com/user-attachments/assets/e10e5c5a-5bce-435e-ac2f-9b6926b411de)
 
 ![MSI Motherboard Setup](1st-Proxmox-VE-boot.jpg)
+
+
 
 #### **Software Verification**
 * **Ubuntu VM:** First successful boot with manual network bridging confirmed.
@@ -76,6 +82,8 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ![Ubuntu Success Screenshot](Welcome-to-Ubuntu.png)
 ---
+
+
 
 ### **Logical Network Topology**
 
