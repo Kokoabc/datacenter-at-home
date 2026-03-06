@@ -45,25 +45,6 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 * ---
   
 
-## Build Gallery
-
-#### **Physical Assembly**
-* **RAM Upgrade:** Successfully populated all 4 DIMM slots for a total of 32GB DDR3.
-![Installing the RAM](32GB ram upgrade.jpg)
-
-* **The "Before":** Original 8GB configuration, insufficient for multi-VM workloads.
-![Old 8GB RAM](Old 8GB ram.jpg)
-
-* **NIC Installation:** Installed a genuine Intel i350-T2 Server NIC for superior driver support and hardware offloading.
-![Intel i350-T2 NIC Installation](NIC card-Intel i350-T2.jpg)
-
-* **Mainboard Setup:** Preparing the MSI Z97 Guard-Pro for the first Proxmox VE boot.
-![MSI Motherboard Setup](1st Proxmox VE boot.jpg)
-
-#### **Software Verification**
-* **Ubuntu VM:** First successful boot with manual network bridging confirmed.
-![Ubuntu Success Screenshot](Welcome to Ubuntu.png)
-
 ### Build Gallery
 
 #### **Physical Assembly**
