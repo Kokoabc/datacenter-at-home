@@ -43,8 +43,8 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 ### Technical Note: Hardware Selection
 * **NIC Choice:** I specifically sourced a genuine **Intel i350-T2** for this build. Unlike consumer-grade Realtek chips, this server-grade NIC utilizes the **`igb` driver**, which offers superior stability, hardware offloading, and SR-IOV support in Proxmox/Linux environments. This ensures that network-intensive VMs (like the OPNsense firewall) have high-performance, low-latency throughput.
 * ---
-  
 
+  
 ### Build Gallery
 
 #### **Physical Assembly**
