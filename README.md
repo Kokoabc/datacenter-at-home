@@ -19,53 +19,51 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 * [Troubleshooting Log](#troubleshooting-log)
 * [About the Author](#about-the-author)
 
-## Technical Stack
-* **Hypervisor:** Proxmox VE
-* **Firewall/Router:** OPNsense
-* **Switching:** TP-Link TL-SG108E (L2 Managed)
-* **Identity Management:** Windows Server 2022 (Active Directory)
-* **Operating Systems:** Ubuntu Server, Windows 10/11 Enterprise, Kali Linux
+##  Technical Stack
+
+### **Hypervisor & Core Services**
+* **Hypervisor:** Proxmox VE 9.1.1 (Deployed)
+* **Operating Systems:** Ubuntu 24.04 LTS (Active), Windows 10/11, Kali Linux (Planned)
+* **Identity Management:** Windows Server 2022 Active Directory (Planned)
+* **Networking:** OPNsense Firewall/Router (Planned)
 
 ---
 
-## Hardware Inventory (The "Brain")
+### ** Hardware Inventory **
+
 | Component | Specification | Purpose |
 | :--- | :--- | :--- |
-| **Host Motherboard** | MSI Z97 Guard-Pro (MS-7917) | Durable foundation with PCIe expandability. |
-| **CPU** | Intel® Core™ i5-4690K | Quad-core processing for multi-VM workloads. |
-| **Memory** | 32GB DDR3 1600MHz (Upgraded) | High-density RAM for concurrent VM execution. |
-| **Network Card** | Intel i350-T2 Server NIC | Dual-port 1Gbps with SR-IOV & Hardware Offloading. |
-| **Switch** | TP-Link TL-SG108E | 8-Port Managed Switch for 802.1Q VLAN tagging. |
+| **Host Motherboard** | MSI Z97 Guard-Pro (MS-7917) | Durable foundation with PCIe expandability |
+| **CPU** | Intel® Core™ i5-4690K | Quad-core processing for multi-VM workloads |
+| **Memory** | 32GB DDR3 1600MHz | High-density RAM for concurrent VM execution |
+| **Storage** | Hitachi & Fujitsu HDD Array | Redundant storage for VM images and backups |
 
 ---
 
-## Logical Network Topology
-*Planned architecture for the upcoming implementation:*
+### ** Logical Network Topology**
 
-1.  **WAN Zone:** Raw ISP feed entering the **Intel i350 Port 1**.
-2.  **Edge Security:** **OPNsense VM** acting as the primary gateway/firewall.
-3.  **LAN Zone:** Protected traffic exiting **Intel i350 Port 2** to the **Managed Switch**.
-4.  **VLAN Segmentation:**
-    * **VLAN 10 (Management):** Proxmox GUI & Switch Interface access.
-    * **VLAN 20 (Lab):** Windows Server, Active Directory, and Sandbox Workstations.
-    * **VLAN 30 (Security):** IDS/IPS monitoring and Kali Linux tools.
+* **WAN Zone:** Raw ISP feed entering the laptop via Wi-Fi and bridged to the Lab PC.
+* **Management:** Proxmox GUI & SSH access via static IP `192.168.1.100`.
+* **VLAN 20 (Sandbox):** Primary Ubuntu VM with manual network configuration.
 
 ---
 
-## Roadmap & Milestone Tracking
-- [x] **Project Scope & Requirements Gathering**
-- [x] **Hardware Selection & Compatibility Audit** (MSI Z97 + Intel i350)
-- [ ] **Physical Assembly & RAM Burn-in Testing** (Waiting for parts)
-- [ ] **Proxmox VE Installation & Network Bridge Configuration**
-- [ ] **OPNsense Deployment & Firewall Rule Hardening**
-- [ ] **Active Directory Domain Controller Setup**
+### ** Roadmap & Milestone Tracking**
+
+* [x] **Phase 1:** Project Scope & Requirements Gathering
+* [x] **Phase 2:** Hardware Selection & RAM Upgrades (32GB)
+* [x] **Phase 3:** Physical Assembly & Proxmox VE Installation
+* [x] **Phase 4:** First VM Deployment (Ubuntu 24.04)
+* [ ] **Phase 5:** OPNsense Deployment & Network Hardening
+* [ ] **Phase 6:** Active Directory Domain Controller Setup
 
 ---
 
-## Troubleshooting Log (Current Phase)
-* **Challenge:** Determining NIC compatibility for FreeBSD-based OPNsense.
-* **Solution:** Sourced a genuine Intel i350-T2 chipset due to its superior driver support (igb) and hardware offloading capabilities compared to consumer Realtek chips.
+### ** Troubleshooting Log**
 
+**Challenge:** Ubuntu VM initial installation "Connection Failed" error during network setup.
+
+**Solution:** Bypassed DHCP during installation; configured Windows Internet Connection Sharing (ICS) on the laptop and assigned a manual IPv4 gateway inside the VM.
 * ---
 [⬆ Back to Top](#top)
 ## About the Author
