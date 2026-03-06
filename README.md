@@ -49,26 +49,31 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 #### **Physical Assembly**
 * **RAM Upgrade:** Successfully populated all 4 DIMM slots for a total of 32GB DDR3.
-* 
+  ![32GB ram upgrade](https://github.com/user-attachments/assets/16d8a4f5-0ffd-4d5c-831a-db5f434af1a1)
+
 ![Installing the RAM](32GB-ram-upgrade.jpg)
 
 * **The "Before":** Original 8GB configuration, insufficient for multi-VM workloads.
-* 
-![Old 8GB RAM](Old-8GB-ram.jpg)
+![Old 8GB ram](https://github.com/user-attachments/assets/fbc75878-2ac7-45f8-8d11-2c3b5e5ee487)
+
+![Old 8GB RAM](Old-8GB-ram.jpg)   
 
 * **NIC Installation:** Installed a genuine Intel i350-T2 Server NIC.
-* 
+* ![NIC card-Intel i350-T2](https://github.com/user-attachments/assets/0e53888a-bd9b-438a-84b8-73527e5be879)
+
 ![Intel i350-T2 NIC Installation](NIC-card-Intel-i350-T2.jpg)
 
 > **Technical Note:** I specifically chose the Intel i350-T2 because it uses the **`igb` driver**. This provides better stability and hardware offloading for virtualization compared to standard consumer chips.
 
 * **Mainboard Setup:** Preparing the MSI Z97 Guard-Pro for the first Proxmox VE boot.
-* 
+* ![1st Proxmox VE boot](https://github.com/user-attachments/assets/e10e5c5a-5bce-435e-ac2f-9b6926b411de)
+
 ![MSI Motherboard Setup](1st-Proxmox-VE-boot.jpg)
 
 #### **Software Verification**
 * **Ubuntu VM:** First successful boot with manual network bridging confirmed.
-* 
+* ![Welcome to Ubuntu](https://github.com/user-attachments/assets/a22820ca-e408-415b-8516-50b128be3bee)
+
 ![Ubuntu Success Screenshot](Welcome-to-Ubuntu.png)
 ---
 
