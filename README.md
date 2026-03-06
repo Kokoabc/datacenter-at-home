@@ -29,7 +29,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### ** Hardware Inventory **
+### **Hardware Inventory**
 
 | Component | Specification | Purpose |
 | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### ** Logical Network Topology**
+### **Logical Network Topology**
 
 * **WAN Zone:** Raw ISP feed entering the laptop via Wi-Fi and bridged to the Lab PC.
 * **Management:** Proxmox GUI & SSH access via static IP `192.168.1.100`.
@@ -48,7 +48,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### ** Roadmap & Milestone Tracking**
+### **Roadmap & Milestone Tracking**
 
 * [x] **Phase 1:** Project Scope & Requirements Gathering
 * [x] **Phase 2:** Hardware Selection & RAM Upgrades (32GB)
@@ -59,7 +59,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### ** Troubleshooting Log**
+### **Troubleshooting Log**
 
 **Challenge:** Ubuntu VM initial installation "Connection Failed" error during network setup.
 
