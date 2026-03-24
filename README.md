@@ -109,6 +109,34 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 **Hardware Insight:** Verified the **Intel i350-T2** was correctly identified by the Proxmox kernel using the `igb` driver, ensuring the physical link was stable even when the software configuration required manual intervention.
 
+### Network Interface Recovery & Headless Migration
+
+**1. The Issue: "No Carrier" & Inactive Interfaces**
+During the initial setup, the Proxmox VE node was inaccessible via the web GUI. Despite physical cabling, all network interfaces (`nic0`, `nic1`, `nic2`) reported a state of `DOWN` with `NO-CARRIER`. The Proxmox bridge (`vmbr0`) was incorrectly bound to the inactive onboard MSI NIC (`nic0`).
+
+**2. Manual Hardware Activation**
+To resolve the handshake failure between the Intel i350-T2 NIC and the network switch, the interfaces were manually forced into an administrative `UP` state via the CLI:
+`ip link set nic1 up`
+`ip link set nic2 up`
+
+**Result:** This successfully triggered LED activity and changed the link status to `LOWER_UP`, confirming physical layer connectivity and successful hardware negotiation.
+
+**3. Linux Bridge Reconfiguration**
+The network configuration file (`/etc/network/interfaces`) was modified to move the management interface from the onboard port to the dedicated Intel NIC.
+
+* **Redundancy:** Changed `bridge-ports` from `nic0` to `nic1 nic2` so the bridge listens on both Intel ports.
+* **Automation:** Added `auto` stanzas to ensure interfaces initialize automatically on system boot.
+* **Static Addressing:** Verified and locked the static IP assignment to `192.168.1.100/24`.
+
+**4. Headless Transition**
+Once the network bridge was verified via successful ICMP pings from the management laptop, the physical peripherals (monitor and keyboard) were decommissioned. The server now operates in a **Headless** state, managed 100% via the Proxmox Web Interface.
+
+---
+
+**Lessons Learned**
+* **Verify Logic First:** Always verify the logical interface name mapping (`ip link`) before assuming a hardware failure.
+* **Bridge Requirements:** Linux bridges (`vmbr0`) require at least one active physical port (`bridge-ports`) to allow external traffic to reach the hypervisor.
+
 ---
 
 
