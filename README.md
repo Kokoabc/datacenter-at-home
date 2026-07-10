@@ -102,34 +102,19 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ### **Troubleshooting Log**
 
-**Challenge:** Ubuntu VM initial installation "Connection Failed" error during network setup.
+**1: Proxmox hypervisor network interface recovery**
+Problem: The Proxmox VE node was completely inaccessible via the web GUI. Despite physical cabling, the active network interfaces reported a state of DOWN with NO-CARRIER because the default virtual bridge (vmbr0) was incorrectly bound to the inactive, onboard motherboard NIC.
 
-**Solution:** Bypassed DHCP during installation; configured Windows Internet Connection Sharing (ICS) on the laptop and assigned a manual IPv4 gateway inside the VM.
+Solution: Manually forced the Intel i350-T2 network interfaces into an administrative UP state via the CLI (ip link set nic2 up). Then, modified the network configuration file (/etc/network/interfaces) to re-bind the vmbr0 bridge ports to the active Intel interface, adding auto stanzas to ensure they initialize automatically on boot.
 
-**Hardware Insight:** Verified the **Intel i350-T2** was correctly identified by the Proxmox kernel using the `igb` driver, ensuring the physical link was stable even when the software configuration required manual intervention.
+Result: Restored full network connectivity to the hypervisor host. Locked the static management IP to 192.168.1.100/24, allowing the physical monitor and keyboard to be decommissioned so the server could run in its intended headless state.
 
-### Network Interface Recovery & Headless Migration
+**2: Ubuntu VM initial installation network error**
+Problem: During the initial setup of the Ubuntu virtual machine, the installer threw a "Connection Failed" error during the network configuration phase, failing to fetch an IP address automatically.
 
-**1. The Issue: "No Carrier" & Inactive Interfaces**
-During the initial setup, the Proxmox VE node was inaccessible via the web GUI. Despite physical cabling, all network interfaces (`nic0`, `nic1`, `nic2`) reported a state of `DOWN` with `NO-CARRIER`. The Proxmox bridge (`vmbr0`) was incorrectly bound to the inactive onboard MSI NIC (`nic0`).
+Solution: Bypassed the automated DHCP setup during the installation wizard and manually assigned a static IPv4 gateway inside the VM configuration, utilizing Windows internet connection sharing (ICS) from the management laptop to bridge the gap.
 
-**2. Manual Hardware Activation**
-To resolve the handshake failure between the Intel i350-T2 NIC and the network switch, the interfaces were manually forced into an administrative `UP` state via the CLI:
-`ip link set nic1 up`
-`ip link set nic2 up`
-
-**Result:** This successfully triggered LED activity and changed the link status to `LOWER_UP`, confirming physical layer connectivity and successful hardware negotiation.
-
-**3. Linux Bridge Reconfiguration**
-The network configuration file (`/etc/network/interfaces`) was modified to move the management interface from the onboard port to the dedicated Intel NIC.
-
-* **Redundancy:** Changed `bridge-ports` from `nic0` to `nic1 nic2` so the bridge listens on both Intel ports.
-* **Automation:** Added `auto` stanzas to ensure interfaces initialize automatically on system boot.
-* **Static Addressing:** Verified and locked the static IP assignment to `192.168.1.100/24`.
-
-**4. Headless Transition**
-Once the network bridge was verified via successful ICMP pings from the management laptop, the physical peripherals (monitor and keyboard) were decommissioned. The server now operates in a **Headless** state, managed 100% via the Proxmox Web Interface.
-
+Result: Successfully bypassed the provisioning error, established a stable local network link, and completed the base Ubuntu operating system installation.
 ---
 
 **Lessons Learned**
