@@ -1,10 +1,10 @@
 <a name="top"></a>
 # datacenter-at-home
 # Enterprise-Grade Home Lab: Virtualization & Security Architecture
-**Status:** Phase 1: Hardware Procurement & Network Design
+**Status:** Phase 1: Hardware procurement & network design
 
 
-## Project Overview
+## Project overview
 This project involves the transformation of legacy consumer hardware into a robust, enterprise-grade virtualization host. The goal is to create a secure, segmented environment to master **Systems Engineering**, **Network Security**, and **GRC** (Governance, Risk, and Compliance) frameworks.
 
 ### Objective
@@ -20,9 +20,9 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 * [Troubleshooting Log](#troubleshooting-log)
 * [About the Author](#about-the-author)
 
-##  Technical Stack
+##  Technical stack
 
-### **Hypervisor & Core Services**
+### **Hypervisor & core services**
 * **Hypervisor:** Proxmox VE 9.1.1 (Deployed)
 * **Operating Systems:** Ubuntu 24.04 LTS (Active), Windows 10/11, Kali Linux (Planned)
 * **Identity Management:** Windows Server 2022 Active Directory (Planned)
@@ -30,7 +30,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ---
 
-### **Hardware Inventory**
+### **Hardware inventory**
 
 | Component | Specification | Purpose |
 | :--- | :--- | :--- |
@@ -42,11 +42,11 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 ---
 
 
-#### **Phase 2: The Memory Overhaul**  
-### Build Gallery
+#### **Phase 2: The memory overhaul**  
+### Build gallery
 
-#### **Physical Assembly**
-* **RAM Upgrade:** Successfully populated all 4 DIMM slots for a total of 32GB DDR3.
+#### **Physical assembly**
+* **RAM upgrade:** Successfully populated all 4 DIMM slots for a total of 32GB DDR3.
   ![32GB ram upgrade](https://github.com/user-attachments/assets/16d8a4f5-0ffd-4d5c-831a-db5f434af1a1)
 
 
@@ -58,22 +58,22 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 
 
-* **NIC Installation:** Installed a genuine Intel i350-T2 Server NIC.
+* **NIC installation:** Installed an Intel i350-T2 Server NIC.
 * ![NIC card-Intel i350-T2](https://github.com/user-attachments/assets/0e53888a-bd9b-438a-84b8-73527e5be879)
 
 
 
-> **Technical Note:** I specifically chose the Intel i350-T2 because it uses the **`igb` driver**. This provides better stability and hardware offloading for virtualization compared to standard consumer chips.
+> **Technical note:** I specifically chose the Intel i350-T2 because it uses the **`igb` driver**. This provides better stability and hardware offloading for virtualization compared to standard consumer chips.
 >
 
 
-* **Mainboard Setup:** Preparing the MSI Z97 Guard-Pro for the first Proxmox VE boot.
+* **Mainboard setup:** Preparing the MSI Z97 Guard-Pro for the first Proxmox VE boot.
 * ![1st Proxmox VE boot](https://github.com/user-attachments/assets/e10e5c5a-5bce-435e-ac2f-9b6926b411de)
 
 
 
 
-#### **Software Verification**
+#### **Software verification**
 * **Ubuntu VM:** First successful boot with manual network bridging confirmed.
 * ![Welcome to Ubuntu](https://github.com/user-attachments/assets/a22820ca-e408-415b-8516-50b128be3bee)
 
@@ -82,21 +82,21 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 
 
-### **Logical Network Topology**
+### **Logical network topology**
 
 <img width="434" height="335" alt="Kokolab Network Diagram" src="https://github.com/user-attachments/assets/81e97235-8ae4-4135-b679-a0f332463765" />
 
 
 ---
 
-### **Roadmap & Milestone Tracking**
+### **Roadmap & milestone tracking**
 
-* [x] **Phase 1:** Project Scope & Requirements Gathering
-* [x] **Phase 2:** Hardware Selection & RAM Upgrades (32GB)
-* [x] **Phase 3:** Physical Assembly & Proxmox VE Installation
-* [x] **Phase 4:** First VM Deployment (Ubuntu 24.04)
-* [ ] **Phase 5:** OPNsense Deployment & Network Hardening
-* [ ] **Phase 6:** Active Directory Domain Controller Setup
+* [x] **Phase 1:** Project scope & requirements gathering
+* [x] **Phase 2:** Hardware selection & RAM upgrades (32GB)
+* [x] **Phase 3:** Physical assembly & Proxmox VE installation
+* [x] **Phase 4:** First VM deployment (Ubuntu 24.04)
+* [ ] **Phase 5:** OPNsense deployment & network hardening
+* [ ] **Phase 6:** Active directory domain controller setup
 
 ---
 
@@ -122,8 +122,8 @@ Result: Successfully bypassed the provisioning error, established a stable local
 ---
 
 **Lessons Learned**
-* **Verify Logic First:** Always verify the logical interface name mapping (`ip link`) before assuming a hardware failure.
-* **Bridge Requirements:** Linux bridges (`vmbr0`) require at least one active physical port (`bridge-ports`) to allow external traffic to reach the hypervisor.
+* **Verify logic first:** Always verify the logical interface name mapping (`ip link`) before assuming a hardware failure.
+* **Bridge requirements:** Linux bridges (`vmbr0`) require at least one active physical port (`bridge-ports`) to allow external traffic to reach the hypervisor.
 
 ---
 
