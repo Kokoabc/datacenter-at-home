@@ -103,14 +103,14 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 ### **Troubleshooting Log**
 
 **1: Proxmox hypervisor network interface recovery**
-Problem: The Proxmox VE node was completely inaccessible via the web GUI. Despite physical cabling, the active network interfaces reported a state of DOWN with NO-CARRIER because the default virtual bridge (vmbr0) was incorrectly bound to the inactive, onboard motherboard NIC.
+**Problem: The Proxmox VE node was completely inaccessible via the web GUI. Despite physical cabling, the active network interfaces reported a state of DOWN with NO-CARRIER because the default virtual bridge (vmbr0) was incorrectly bound to the inactive, onboard motherboard NIC.
 
 Solution: Manually forced the Intel i350-T2 network interfaces into an administrative UP state via the CLI (ip link set nic2 up). Then, modified the network configuration file (/etc/network/interfaces) to re-bind the vmbr0 bridge ports to the active Intel interface, adding auto stanzas to ensure they initialize automatically on boot.
 
 Result: Restored full network connectivity to the hypervisor host. Locked the static management IP to 192.168.1.100/24, allowing the physical monitor and keyboard to be decommissioned so the server could run in its intended headless state.
 
 **2: Ubuntu VM initial installation network error**
-Problem: During the initial setup of the Ubuntu virtual machine, the installer threw a "Connection Failed" error during the network configuration phase, failing to fetch an IP address automatically.
+**Problem: During the initial setup of the Ubuntu virtual machine, the installer threw a "Connection Failed" error during the network configuration phase, failing to fetch an IP address automatically.
 
 Solution: Bypassed the automated DHCP setup during the installation wizard and manually assigned a static IPv4 gateway inside the VM configuration, utilizing Windows internet connection sharing (ICS) from the management laptop to bridge the gap.
 
