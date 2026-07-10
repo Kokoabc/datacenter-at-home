@@ -11,7 +11,7 @@ This project involves the transformation of legacy consumer hardware into a robu
 To simulate a corporate network environment using a Type-1 Hypervisor to host a multi-VLAN architecture, allowing for hands-on practice in firewall orchestration, identity management (Active Directory), and traffic analysis.   
 
 ---
-## Table of Contents
+## Table of contents
 * [Project Overview](#project-overview)
 * [Technical Stack](#technical-stack)
 * [Hardware Inventory](#hardware-inventory-the-brain)
