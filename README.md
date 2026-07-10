@@ -83,7 +83,7 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 
 ### **Logical Network Topology**
-
+![Network Diagram](network-diagram.png)
 * **WAN Zone:** Raw ISP feed entering the laptop via Wi-Fi and bridged to the Lab PC.
 * **Management:** Proxmox GUI & SSH access via static IP `192.168.1.100`.
 * **VLAN 20 (Sandbox):** Primary Ubuntu VM with manual network configuration.
