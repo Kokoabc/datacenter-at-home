@@ -84,7 +84,8 @@ To simulate a corporate network environment using a Type-1 Hypervisor to host a 
 
 ### **Logical network topology**
 
-[Mopelola Opeifa- Network Diagram.drawio.pdf](https://github.com/user-attachments/files/31776745/Mopelola.Opeifa-.Network.Diagram.drawio.pdf)
+<img width="499" height="377" alt="MO network diagram" src="https://github.com/user-attachments/assets/a62b9382-7274-4d1a-b57c-3aecae13e2c7" />
+
 
 
 
